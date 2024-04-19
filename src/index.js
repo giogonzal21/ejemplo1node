@@ -34,6 +34,7 @@ const port = 3000;
 
 // Importación del módulo de las rutas relacionadas con los animales desde un archivo local
 const animalRoutes = require("./routes/animalRoutes");
+const authRoutes = require("./routes/authentication");
 
 // Importación del módulo mongoose, una librería de modelado de objetos MongoDB para Node.js
 const mongoose = require("mongoose");
@@ -49,7 +50,7 @@ app.use(parser.json());
 
 // Configuración de Express para usar las rutas definidas en animalRoutes cuando se acceda a cualquier ruta que comience con "/api"
 app.use("/api", animalRoutes);
-
+app.use("/api", authRoutes);
 // Configuración de Express para analizar el cuerpo de las solicitudes entrantes como JSON de manera global
 app.use(express.json());
 
